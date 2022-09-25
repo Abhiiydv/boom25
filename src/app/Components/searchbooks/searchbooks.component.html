@@ -1,0 +1,89 @@
+
+<div class="container-fluid">
+
+
+
+  <div class="row">
+
+
+  </div>
+
+  <div class="row mt-2">
+
+
+    <div class="col-sm-4 mt-5">
+
+      <!-- Basic dropdown -->
+      <input type="text" [(ngModel)]="enteredValue1" id="form6Example3" placeholder="Searc By Category.."
+        class="form-control" />
+       
+      <button class="btn btn-outline-primary mt-2 mb-1" (click)="SearchByCategory(enteredValue1)"
+        type="button">Search</button>
+
+
+      <!-- Basic dropdown -->
+
+    </div>
+
+
+
+    <div class="col-sm-4 mt-5">
+      <input type="text" id="form6Example3" [(ngModel)]="enteredValue2" placeholder="Enter author name.."
+        class="form-control" />
+      <button class="btn btn-outline-primary mt-2 mb-1" (click)="SearchByAuthorname(enteredValue2)"
+        type="button">Search</button>
+    </div>
+
+    <div class="col-sm-4 mt-5">
+      <input type="text" id="form6Example3" [(ngModel)]="enteredValue3" placeholder="Enter publisher.."
+        class="form-control" />
+      <button class="btn btn-outline-primary mt-2 mb-1" (click)="SearchByPublisher(enteredValue3)"
+        type="button">Search</button>
+    </div>
+
+  </div>
+  <div class="row">
+
+
+
+
+
+    <div class="row card-group">
+      <div class="col-md-3" *ngFor="let b of books">
+        <div class="card mt-2 card-h80" style="width: 80%;">
+
+          <div class="card-body ">
+            <mat-card-header>
+              <mat-card-title>{{b.title}}</mat-card-title>
+            </mat-card-header>
+            <img class="card-img mt-2 " src="http://localhost:9092/download/?image={{b.logo}}" width="200px" height="150px" alt="Card image cap">
+            <b>
+              <h5 class="card-subtitle mb-2 text-muted"> By {{b.authorName}}</h5>
+            </b>
+
+
+            <button type="button" (click)="addToCart(b)" class="btn btn-block mb-2">Buy</button>
+            <button type="button" class="btn btn-block mb-2" data-bs-toggle="modal"
+              data-bs-target="#exampleModal">Details</button>
+
+          </div>
+        </div>
+
+
+      </div>
+
+
+
+    </div>
+
+
+
+  </div>
+
+
+ 
+
+
+
+</div>
+

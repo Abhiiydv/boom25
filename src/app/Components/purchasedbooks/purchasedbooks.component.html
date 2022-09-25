@@ -1,0 +1,89 @@
+<div class="container-fluid">
+
+
+    <header class="text-center mt-3 " style="font-size: 20px">Find your Books</header>
+
+    <div class="row banner d-flex justify-content-center align-items-center">
+
+        <div class="col-md-8">
+  
+          <div class="search mt-5">
+            <i class="fa fa-search"></i>
+            <input type="text" class="form-control" [(ngModel)]="email" placeholder="Find your books by email..">
+          <button class="btn srchbtn  btn-block" (click)="getBookIds(email)" >Search</button>
+           
+          </div>
+          
+        </div>
+      
+     </div>
+
+
+
+     <div class="row mt-5 ">
+
+
+        <table class="table table-white table-hover table-sm table-bordered table-striped shadow-2-strong">
+            <thead class="thead-dark">
+                <tr>
+                    <th> Book Id</th>
+                    <th>View Content</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let i of bIds">
+                    <td> {{i}} </td>
+                    <td>
+                        <button mat-icon-button color="primary" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="getBookDataforEachId(i)" >
+                            <mat-icon>book</mat-icon>
+                        </button>
+                    </td>
+                    
+
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+</div>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title" id="exampleModalLabel">Book Details</h3>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div>
+
+
+                <!-- 2 column grid layout with text inputs for the first and last names -->
+          
+                <div class="row">
+          
+                    <mat-form-field class="field" appearance="outline">
+                        <mat-label>Author Name</mat-label>
+                        <input name="authorname" [(ngModel)]="b.authorName" matInput>
+                    </mat-form-field>
+                    <mat-form-field class="field" appearance="outline">
+                        <mat-label>Content</mat-label>
+                        <textarea matInput [(ngModel)]="b.content"  rows="10" placeholder=".."></textarea>
+                      </mat-form-field>
+                      
+                  <div class="col">
+
+                
+          
+                <!-- Submit button -->
+                
+          
+                <button type="button" class="btn btn-secondary closebtn btn-block mt-4" data-bs-dismiss="modal">Close</button>
+              </div>
+              
+        </div>
+        
+      </div>
+    </div>
+  </div>
+

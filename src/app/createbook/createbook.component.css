@@ -1,0 +1,44 @@
+.field,checkbox {
+    width: 80%;
+    margin-left: 10%;
+}
+h1,h2,p,mat-label,checkbox{
+    color:white;
+}
+.second{
+    max-width: 100%;
+    padding: 1px auto;
+    padding-right: 1px;
+}
+.container-fluid{
+    background-color: #232946;
+}
+input, textarea{
+  color:white;
+}
+.greet h1,p {
+    margin-top: 5%;
+}
+app-foot{
+    background-color: #232946;
+}
+.mat-radio-button ~ .mat-radio-button,checkbox {
+    margin-left: 16px;
+  }
+  mat-radio-group, mat-radio-button,.form-check{
+    color:white;
+    margin-left: 10%;
+  }
+  button{
+    background-color: #323a62;
+    color: white;
+  }
+  button:hover{
+    background-color: rgb(29, 90, 148);
+    color: white;
+  }
+  .form-control{
+    width: 80%;
+    margin-left: 10%;
+    margin-bottom: 10px;
+  }

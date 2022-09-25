@@ -1,0 +1,158 @@
+ <div class="container-fluid">
+
+    <div class="row banner d-flex justify-content-center align-items-center">
+
+      <div class="col-md-8">
+
+        <div class="search mt-5">
+          <i class="fa fa-search"></i>
+          <input type="text" class="form-control" [(ngModel)]="query" placeholder="Search by Title, Category, Price, Author Name..">
+        <button class="btn srchbtn bg-primary btn-block" (click)="SearchByAnything(query)" >Search</button>
+         
+        </div>
+        
+      </div>
+    
+   </div>
+
+
+   <div class="row mt-3 card-group">
+    <div class="col-md-3" *ngFor="let x of bb" >
+      <div class="card mt-2  mb-3 text-center card h-80" style="width: 90%; height: 500px;">
+              
+        <div class="card-body text-center">
+      <mat-card-header>
+        <mat-card-title>{{x.title}}</mat-card-title>
+      </mat-card-header>
+      <div class="mid">
+        <img class="card-img mt-2 " src="http://ec2-35-92-189-97.us-west-2.compute.amazonaws.com:9092/download/?image={{x.logo}}" width="180px" height="250px"  alt="Card image cap">
+           <b><h5 class="card-subtitle mb-2 text-muted"> By {{x.authorName}}</h5></b> 
+      </div>
+      
+        
+           <div class="stats mt-2">
+            
+            <div class="d-flex justify-content-between p-price"><span>Category</span><span>{{x.category}}</span></div>
+            <div class="d-flex justify-content-between p-price"><span>Price</span><span>{{x.price |currency: 'INR'}}</span></div>
+        </div>
+        <div class="btns text-center">
+          <button type="button" (click)="addToCart(x)" class="btn btn-block mb-2">Add to Cart</button>
+         
+        </div>
+          
+          
+        </div>
+      </div>
+      
+
+    </div>
+</div>
+
+  </div>
+
+  
+
+
+<div class="container-fluid">
+  <!-- <div class="row">
+    <h2  style="text-align:center"  >Welocme</h2>
+    <h3 style="text-align:center" >Available books for purchase.</h3>
+  </div> -->
+  <div class="row  card-group">
+      <div class="col-md-3" *ngFor="let b of books" >
+            <div class="card mt-2  mb-3 text-center card h-80" style="width: 90%; height: 500px;">
+              
+              <div class="card-body text-center">
+            <mat-card-header>
+              <mat-card-title>{{b.title}}</mat-card-title>
+            </mat-card-header>
+            <div class="mid">
+              <img class="card-img mt-2 " src="http://ec2-35-92-189-97.us-west-2.compute.amazonaws.com:9092/download/?image={{b.logo}}" width="180px" height="250px"  alt="Card image cap">
+                 <b><h5 class="card-subtitle mb-2 text-muted"> By {{b.authorName}}</h5></b> 
+            </div>
+            
+              
+                 <div class="stats mt-2">
+                  
+                  <div class="d-flex justify-content-between p-price"><span>Category</span><span>{{b.category}}</span></div>
+                  <div class="d-flex justify-content-between p-price"><span>Price</span><span>{{b.price |currency: 'INR'}}</span></div>
+              </div>
+              <div class="btns text-center">
+                <button type="button" (click)="addToCart(b)" class="btn btn-block mb-2">Add to Cart</button>
+               
+              </div>
+                
+                
+              </div>
+            </div>
+         
+      
+  
+      </div>
+  </div>
+  </div>
+
+
+<app-foot></app-foot>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="exampleModalLabel">Book Details</h3>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <mat-form-field class="field" appearance="outline">
+            <mat-label>Title</mat-label>
+            <input name="title"   matInput>
+        </mat-form-field>
+        </div>
+        <div class="row">
+          <mat-form-field class="field" appearance="outline">
+            <mat-label>Category</mat-label>
+            <input name="category"  matInput>
+        </mat-form-field>
+        </div>
+        <div class="row"> <mat-form-field class="field" appearance="outline">
+          <mat-label>Logo URL</mat-label>
+          <input name="logo"  matInput>
+      </mat-form-field></div>
+      
+     <div class="row"><mat-form-field class="field" appearance="outline">
+      <mat-label>Author Name</mat-label>
+      <input name="authorname" required matInput>
+  </mat-form-field></div>
+      <div class="row"><mat-form-field class="field" appearance="outline">
+        <mat-label>Price</mat-label>
+        <input type="number"  name="price" matInput>
+    </mat-form-field></div>
+      <div class="row">  <mat-form-field class="field" appearance="outline">
+        <mat-label>Publisher Name</mat-label>
+        <input name="publisher"  matInput>
+    </mat-form-field></div>
+    
+      
+         <div class="row">    <mat-form-field class="field" appearance="outline">
+          <mat-label>Published Date</mat-label>
+          <input type="date"  name="publishedDate"  matInput>
+      </mat-form-field>
+          </div>
+
+       <div class="row"><mat-form-field class="field" appearance="outline">
+        <mat-label>Content</mat-label>
+        <textarea matInput placeholder=".."></textarea>
+      </mat-form-field>
+    </div>
+        
+      <div class="row"><div class="text-center">
+        <button type="button" class="btn  mb-4">Submit</button>
+    </div></div>
+  
+  </div>
+</div>
+</div>
+</div>
+

@@ -1,0 +1,33 @@
+
+div.header{
+    background-color: transparent;
+}
+button {
+    background-color: rgb(51, 51, 226);
+    margin: 15px;
+    color:white;
+   
+  }
+.form-control{
+    width: 50%;
+    margin-left: 25%;
+}
+.srchbttn{
+    margin-left: 45%;
+}
+img{
+    margin-left: 10px;
+}
+table{
+    text-align: center;
+}
+  
+
+th{
+    background-color: rgb(8, 8, 224);
+    color: white;
+}
+tr,td,th{
+    width: 10%;
+    height: 5px;
+}

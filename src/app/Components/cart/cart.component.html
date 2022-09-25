@@ -1,0 +1,148 @@
+
+
+<div class="container mt-2 text-center"  *ngIf="books.length>0" >
+  
+
+  
+   
+  
+    
+    
+          <div>
+    
+          <input type="text" id="form3Example1c" class="form-control" 
+            placeholder="Reader Name" [(ngModel)]=obj.readerName  name="readerName" /> <br>
+            
+          </div>
+          
+          <div >
+            <input type="text" id="form3Example1c" class="form-control"
+            placeholder="Reader EmailId" [(ngModel)]=obj.readerEmailId  name="readerEmailId" />
+            
+          </div>
+         
+  
+          <button type="submit"  class="btn btn-primary btn-block" (click)="getTotalCartValue()" >Total Cart Value</button><span class="text-primary dark:text-secondary">{{ totalCartPrice | currency : 'INR'  }} </span>
+  <a type="submit" class="btn btn-primary btn-block" (click)= "saveReaderDetails(obj)">Order</a>
+  
+
+
+  <!-- <div class="main text-center mt-3">
+    <h2>Welcome to your Cart.</h2>
+  
+    <h3>Dear Customer, Complete your payment before it goes out of stock.</h3>
+    <hr>
+  </div> -->
+
+</div>
+<div class="container" *ngIf="books.length<1">
+
+  <div class="container  mt-100">
+    <div class="col">
+    
+     <div class="col-md-12">
+     
+         <div class="card">
+       <div class="card-header">
+      
+       </div>
+       <div class="card-body cart">
+           <div class="col-sm-12 empty-cart-cls text-center">
+             <img src="assets/empty.jpg" width="300" height="200" class="img-fluid mb-4 mr-3">
+             <h3><strong>Hello, Your Cart is Empty</strong></h3>
+             <h4>Add something to make me happy :)</h4>
+             <a href="home" class="btn btn-primary cart-btn-transform m-3" data-abc="true">continue shopping</a>
+             
+           
+           </div>
+       </div>
+   </div>
+       
+     
+     </div>
+    
+    </div>
+    
+   
+   </div>
+   
+
+
+</div>
+<div class="container-fluid">
+
+  <div class="row card-group">
+    
+    
+      <div class="col-md-3" *ngFor="let b of dupli" >
+       
+   
+            <div class="card mt-2 text-center card h-80" style="width: 100%; height: 500px;">
+              
+              <div class="card-body ">
+            <mat-card-header>
+              <mat-card-title>{{b.title}}</mat-card-title>
+            </mat-card-header>
+            <img class="card-img mt-2 " src="http://ec2-35-92-189-97.us-west-2.compute.amazonaws.com:9092/download/?image={{b.logo}}" width="180px" height="220px"  alt="Card image cap">
+                 <b><h5 class="card-subtitle mb-2 text-muted"> By {{b.authorName}}</h5></b> 
+              
+                 <div class="stats mt-2">
+                  
+                  <div class="d-flex justify-content-between p-price"><span>Category</span><span>{{b.category}}</span></div>
+                  <div class="d-flex justify-content-between p-price"><span>Price</span><span>{{b.price |currency: 'INR'}}</span></div>
+              </div>
+              <div class="btns text-center">
+                
+                <button type="button" class="btn btn-block mb-2" (click)="getRecords(b)" data-bs-toggle="modal" data-bs-target="#exampleModal">Payment</button>
+              </div>
+                
+                
+              </div>
+            </div>
+        
+  
+      </div>
+  </div>
+  
+
+
+
+
+
+  </div>
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title" id="exampleModalLabel">Order details</h3>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+           
+          <div class="form-outline mb-2">
+            <label class="form-label" for="form6Example1">Name</label>
+            <input type="text" id="form6Example1" [(ngModel)]=obj.readerName class="form-control" />
+
+          </div>
+          </div>
+        <div class="row">
+          <div class="form-outline mb-2">
+            <label class="form-label" for="form6Example1">Email</label>
+            <input type="email" id="form6Example1" [(ngModel)]=obj.readerEmailId class="form-control" />
+
+          </div>
+      </div>
+          
+        <div class="row"><div class="text-center">
+          <button type="button" class="btn  mb-4" (click)=" saveReaderDetails(obj)">Done</button>
+      </div></div>
+    
+    </div>
+  </div>
+  </div>
+
+
+  </div>
+  
+  

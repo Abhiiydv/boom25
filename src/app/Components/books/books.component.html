@@ -1,0 +1,37 @@
+<div class="container-fluid">
+
+  <div class="row text-center">
+    <h1 style="color: white; margin-top:10px">Book Store</h1>
+  </div>
+  <div class="row card-group mb-5">
+    <div class="col-md-3" *ngFor="let b of books">
+      <div class="card mt-2  mb-3 text-center card h-80" style="width: 90%; height: 500px;">
+              
+        <div class="card-body text-center">
+      <mat-card-header>
+        <mat-card-title>{{b.title}}</mat-card-title>
+      </mat-card-header>
+      <div class="mid">
+        <img class="card-img mt-2 " src="http://ec2-35-92-189-97.us-west-2.compute.amazonaws.com:9092/download/?image={{b.logo}}" width="180px" height="250px"  alt="Card image cap">
+           <b><h5 class="card-subtitle mb-2 text-muted"> By {{b.authorName}}</h5></b> 
+      </div>
+      
+        
+           <div class="stats mt-2">
+            
+            <div class="d-flex justify-content-between p-price"><span>Category</span><span>{{b.category}}</span></div>
+            <div class="d-flex justify-content-between p-price"><span>Price</span><span>{{b.price |currency: 'INR'}}</span></div>
+        </div>
+        <div class="btns text-center">
+          <button type="button" (click)="addToCart(b)" class="btn btn-block mb-2">Add to Cart</button>
+         
+        </div>
+          
+          
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<app-foot></app-foot>
